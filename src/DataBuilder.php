@@ -467,6 +467,10 @@ class DataBuilder implements DataBuilderInterface
         
         $frames = array_reverse($frames);
 
+        $frame = new Frame($exception->getFile());
+        $frame->setLineno($exception->getLine());
+        $frames[] = $frame;
+        
         return $frames;
     }
 
